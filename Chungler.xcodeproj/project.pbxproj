@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4F8268342A797478003BBD13 /* AI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8268332A797478003BBD13 /* AI.swift */; };
+		4F8268372A797953003BBD13 /* ChatGPTKit in Frameworks */ = {isa = PBXBuildFile; productRef = 4F8268362A797953003BBD13 /* ChatGPTKit */; };
+		4F8268392A7DAEE3003BBD13 /* Speech.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8268382A7DAEE3003BBD13 /* Speech.swift */; };
 		4FF34C5E2A6FB7EA0059ACB3 /* ChunglerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF34C5D2A6FB7EA0059ACB3 /* ChunglerApp.swift */; };
 		4FF34C602A6FB7EA0059ACB3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF34C5F2A6FB7EA0059ACB3 /* ContentView.swift */; };
 		4FF34C622A6FB7EB0059ACB3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4FF34C612A6FB7EB0059ACB3 /* Assets.xcassets */; };
@@ -34,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4F8268332A797478003BBD13 /* AI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AI.swift; sourceTree = "<group>"; };
+		4F8268382A7DAEE3003BBD13 /* Speech.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Speech.swift; sourceTree = "<group>"; };
 		4FF34C5A2A6FB7EA0059ACB3 /* Chungler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chungler.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FF34C5D2A6FB7EA0059ACB3 /* ChunglerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChunglerApp.swift; sourceTree = "<group>"; };
 		4FF34C5F2A6FB7EA0059ACB3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -52,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F8268372A797953003BBD13 /* ChatGPTKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,6 +101,8 @@
 		4FF34C5C2A6FB7EA0059ACB3 /* Chungler */ = {
 			isa = PBXGroup;
 			children = (
+				4F8268332A797478003BBD13 /* AI.swift */,
+				4F8268382A7DAEE3003BBD13 /* Speech.swift */,
 				4FF34C5D2A6FB7EA0059ACB3 /* ChunglerApp.swift */,
 				4FF34C5F2A6FB7EA0059ACB3 /* ContentView.swift */,
 				4FF34C612A6FB7EB0059ACB3 /* Assets.xcassets */,
@@ -145,6 +153,9 @@
 			dependencies = (
 			);
 			name = Chungler;
+			packageProductDependencies = (
+				4F8268362A797953003BBD13 /* ChatGPTKit */,
+			);
 			productName = Chungler;
 			productReference = 4FF34C5A2A6FB7EA0059ACB3 /* Chungler.app */;
 			productType = "com.apple.product-type.application";
@@ -217,6 +228,9 @@
 				Base,
 			);
 			mainGroup = 4FF34C512A6FB7EA0059ACB3;
+			packageReferences = (
+				4F8268352A797953003BBD13 /* XCRemoteSwiftPackageReference "ChatGPTKit" */,
+			);
 			productRefGroup = 4FF34C5B2A6FB7EA0059ACB3 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -261,6 +275,8 @@
 			files = (
 				4FF34C602A6FB7EA0059ACB3 /* ContentView.swift in Sources */,
 				4FF34C5E2A6FB7EA0059ACB3 /* ChunglerApp.swift in Sources */,
+				4F8268342A797478003BBD13 /* AI.swift in Sources */,
+				4F8268392A7DAEE3003BBD13 /* Speech.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -612,6 +628,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		4F8268352A797953003BBD13 /* XCRemoteSwiftPackageReference "ChatGPTKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/heysaik/ChatGPTKit";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		4F8268362A797953003BBD13 /* ChatGPTKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4F8268352A797953003BBD13 /* XCRemoteSwiftPackageReference "ChatGPTKit" */;
+			productName = ChatGPTKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 4FF34C522A6FB7EA0059ACB3 /* Project object */;
 }
