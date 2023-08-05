@@ -14,7 +14,7 @@ class Speech {
     static func say(message: String) {
         let utterance = AVSpeechUtterance(string: message)
         utterance.voice = AVSpeechSynthesisVoice(language: "zh-CN")
-        utterance.rate = AVSpeechUtteranceMinimumSpeechRate
+        utterance.rate = AVSpeechUtteranceDefaultSpeechRate
         
         synthesizer.speak(utterance)
     }

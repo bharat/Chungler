@@ -9,25 +9,38 @@ import Foundation
 import ChatGPTKit
 
 class AI {
+    static let defaultBasePrompt = "You are a Mandarin teacher. You reply only in Mandarin. You use small words and simple sentences. You answer without repeating the question."
     static let standard = AI()
+
+    var history: [Message]
     let adminSettings = AdminSettings()
+
+    init() {
+        self.history = []
+    }
     
     func ask(question: String) async -> String {
-        
         let chattyGPT = ChatGPTKit(apiKey: adminSettings.apiKey)
-        var history = [
-            Message(role: .system, content: "You are a Mandarin teacher. You understand English but only speak in Mandarin that a 9 year old with 3 years of Mandarin experience can understand. You never speak in English. You use small words where possible. You answer questions without repeating the question."),
-            Message(role: .user, content: question)
-        ]
 
         do {
-            switch try await chattyGPT.performCompletions(messages: history) {
+            history.append(Message(role: .user, content: question))
+
+            // Reference: https://community.openai.com/t/cheat-sheet-mastering-temperature-and-top-p-in-chatgpt-api-a-few-tips-and-tricks-on-controlling-the-creativity-deterministic-output-of-prompt-responses/172683
+            switch try await chattyGPT.performCompletions(
+                messages: [Message(role: .system, content: adminSettings.basePrompt)] + history,
+                temperature: 0.5,
+                topP: 0.5
+            ) {
             case .success(let response):
+                print(response)
                 if let firstResponse = response.choices?.first {
                     history.append(firstResponse.message)
+                    history = history.suffix(6)
+
                     return firstResponse.message.content
                 }
             case .failure(let error):
+                print(error)
                 return error.message
             }
         } catch let error {

@@ -8,14 +8,29 @@
 import SwiftUI
 
 class AdminSettings: ObservableObject {
+
     @Published var apiKey: String {
         didSet {
             UserDefaults.standard.set(apiKey, forKey: "apiKey")
         }
     }
+
+    @Published var basePrompt: String {
+        didSet {
+            UserDefaults.standard.set(basePrompt, forKey: "basePrompt")
+        }
+    }
+
+    @Published var useSpeech: Bool {
+        didSet {
+            UserDefaults.standard.set(useSpeech, forKey: "useSpeech")
+        }
+    }
     
     init() {
         self.apiKey = UserDefaults.standard.object(forKey: "apiKey") as? String ?? ""
+        self.basePrompt = UserDefaults.standard.object(forKey: "basePrompt") as? String ?? AI.defaultBasePrompt
+        self.useSpeech = UserDefaults.standard.object(forKey: "useSpeech") as? Bool ?? false
     }
 }
 
@@ -25,9 +40,22 @@ struct AdminView: View {
     var body: some View {
         NavigationView {
             Form {
-                Section(header: Text("OpenAPI")) {
-                    Text("API Key")
+                Section(header: Text("OpenAPI API Key")) {
                     TextField("", text: $adminSettings.apiKey)
+                }
+                Section(header: Text("Prompt")) {
+                    TextField("", text: $adminSettings.basePrompt, axis: .vertical)
+                    Button(action:{
+                        adminSettings.basePrompt = AI.defaultBasePrompt
+                    }) {
+                        Text("Reset")
+                    }
+                }
+                Section(header: Text("Interaction")) {
+                    Toggle(isOn: $adminSettings.useSpeech) {
+                        Text("Speak the answer")
+                    }
+                    .toggleStyle(.switch)
                 }
             }
             .navigationTitle("Settings")
