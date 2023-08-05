@@ -9,7 +9,16 @@ import Foundation
 import ChatGPTKit
 
 class AI {
-    static let defaultBasePrompt = "You are a Mandarin teacher. You reply only in Mandarin. You use small words and simple sentences. You answer without repeating the question."
+    static let defaultBasePrompt = """
+Follow these 7 instructions below in all your responses:
+1. Use the Chinese language only;
+2. Use the Chinese alphabet whenever possible;
+3. Do not use English
+4. Avoid the Latin alphabet whenever possible;
+5. Translate any other language to the Chinese language whenever possible;
+6. Use small words and simple sentences;
+7. Answer without repeating the question.
+"""
     static let standard = AI()
 
     var history: [Message]
@@ -24,10 +33,12 @@ class AI {
 
         do {
             history.append(Message(role: .user, content: question))
+            let messages = [Message(role: .system, content: adminSettings.basePrompt)] + history
+            print(messages)
 
             // Reference: https://community.openai.com/t/cheat-sheet-mastering-temperature-and-top-p-in-chatgpt-api-a-few-tips-and-tricks-on-controlling-the-creativity-deterministic-output-of-prompt-responses/172683
             switch try await chattyGPT.performCompletions(
-                messages: [Message(role: .system, content: adminSettings.basePrompt)] + history,
+                messages: messages,
                 temperature: 0.5,
                 topP: 0.5
             ) {

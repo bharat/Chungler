@@ -34,12 +34,6 @@ struct ContentView: View {
                     .lineLimit(3...)
                     .foregroundColor(Color.black)
                     .background(Color.white)
-                
-                NavigationLink {
-                    AdminView()
-                } label: {
-                    Text("Admin")
-                }.buttonStyle(.borderedProminent)
             }
             .frame(maxHeight: .infinity)
             .padding(EdgeInsets(top: 0, leading: 40, bottom: 0, trailing: 40))
@@ -47,6 +41,12 @@ struct ContentView: View {
                 .resizable()
                 .scaledToFill()
                 .opacity(0.5))
+
+            NavigationLink {
+                AdminView()
+            } label: {
+                Text("Admin")
+            }.buttonStyle(RedButton())
         }
     }
 }
