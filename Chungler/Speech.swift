@@ -9,12 +9,17 @@ import Foundation
 import AVFoundation
 
 class Speech {
-    static let synthesizer = AVSpeechSynthesizer()
+    static let defaultSpeechRate = AVSpeechUtteranceDefaultSpeechRate
+    static let minimumSpeechRate = AVSpeechUtteranceMinimumSpeechRate
+    static let maximumSpeechRate = AVSpeechUtteranceMaximumSpeechRate
+    
+    var synthesizer = AVSpeechSynthesizer()
+    var adminSettings = AdminSettings.standard
 
-    static func say(message: String) {
+    func say(message: String) {
         let utterance = AVSpeechUtterance(string: message)
         utterance.voice = AVSpeechSynthesisVoice(language: "zh-CN")
-        utterance.rate = AVSpeechUtteranceDefaultSpeechRate
+        utterance.rate = adminSettings.speechRate
         
         synthesizer.speak(utterance)
     }

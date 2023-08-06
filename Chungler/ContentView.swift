@@ -11,6 +11,9 @@ struct ContentView: View {
     // Array of image names from the image set
     @State var question = ""
     @State var answer = ""
+    
+    var ai = AI()
+    var speech = Speech()
 
     var body: some View {
         NavigationStack {
@@ -21,8 +24,8 @@ struct ContentView: View {
                     .background(Color.white)
                 Button(action: {
                     Task {
-                        await answer = AI.standard.ask(question: question)
-                        Speech.say(message: answer)
+                        await answer = ai.ask(question: question)
+                        speech.say(message: answer)
                     }
                 }) {
                     Text("Ask!")

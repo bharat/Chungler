@@ -19,10 +19,9 @@ Follow these 7 instructions below in all your responses:
 6. Use small words and simple sentences;
 7. Answer without repeating the question.
 """
-    static let standard = AI()
 
     var history: [Message]
-    let adminSettings = AdminSettings()
+    let adminSettings = AdminSettings.standard
 
     init() {
         self.history = []

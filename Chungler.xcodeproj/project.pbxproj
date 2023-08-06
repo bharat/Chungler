@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4F3D23A02A7DC250001C0AE4 /* AdminView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3D239F2A7DC250001C0AE4 /* AdminView.swift */; };
 		4F3D23A22A7EC365001C0AE4 /* RedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3D23A12A7EC365001C0AE4 /* RedButton.swift */; };
+		4F45DF442A801FD600E9C598 /* AdminSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F45DF432A801FD600E9C598 /* AdminSettings.swift */; };
 		4F8268342A797478003BBD13 /* AI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8268332A797478003BBD13 /* AI.swift */; };
 		4F8268372A797953003BBD13 /* ChatGPTKit in Frameworks */ = {isa = PBXBuildFile; productRef = 4F8268362A797953003BBD13 /* ChatGPTKit */; };
 		4F8268392A7DAEE3003BBD13 /* Speech.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8268382A7DAEE3003BBD13 /* Speech.swift */; };
@@ -41,6 +42,7 @@
 /* Begin PBXFileReference section */
 		4F3D239F2A7DC250001C0AE4 /* AdminView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminView.swift; sourceTree = "<group>"; };
 		4F3D23A12A7EC365001C0AE4 /* RedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedButton.swift; sourceTree = "<group>"; };
+		4F45DF432A801FD600E9C598 /* AdminSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminSettings.swift; sourceTree = "<group>"; };
 		4F8268332A797478003BBD13 /* AI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AI.swift; sourceTree = "<group>"; };
 		4F8268382A7DAEE3003BBD13 /* Speech.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Speech.swift; sourceTree = "<group>"; };
 		4FF34C5A2A6FB7EA0059ACB3 /* Chungler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chungler.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -105,15 +107,16 @@
 		4FF34C5C2A6FB7EA0059ACB3 /* Chungler */ = {
 			isa = PBXGroup;
 			children = (
+				4FF34C632A6FB7EB0059ACB3 /* Chungler.entitlements */,
+				4F45DF432A801FD600E9C598 /* AdminSettings.swift */,
 				4F3D239F2A7DC250001C0AE4 /* AdminView.swift */,
 				4F8268332A797478003BBD13 /* AI.swift */,
-				4FF34C612A6FB7EB0059ACB3 /* Assets.xcassets */,
-				4FF34C632A6FB7EB0059ACB3 /* Chungler.entitlements */,
 				4FF34C5D2A6FB7EA0059ACB3 /* ChunglerApp.swift */,
 				4FF34C5F2A6FB7EA0059ACB3 /* ContentView.swift */,
-				4FF34C642A6FB7EB0059ACB3 /* Preview Content */,
 				4F3D23A12A7EC365001C0AE4 /* RedButton.swift */,
 				4F8268382A7DAEE3003BBD13 /* Speech.swift */,
+				4FF34C612A6FB7EB0059ACB3 /* Assets.xcassets */,
+				4FF34C642A6FB7EB0059ACB3 /* Preview Content */,
 			);
 			path = Chungler;
 			sourceTree = "<group>";
@@ -285,6 +288,7 @@
 				4F8268392A7DAEE3003BBD13 /* Speech.swift in Sources */,
 				4F3D23A02A7DC250001C0AE4 /* AdminView.swift in Sources */,
 				4F3D23A22A7EC365001C0AE4 /* RedButton.swift in Sources */,
+				4F45DF442A801FD600E9C598 /* AdminSettings.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
